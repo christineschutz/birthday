@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Aniversário - Stardew Valley</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4e4ba;
+            color: #5a3d1f;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .banner {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #5a3d1f;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        #countdown {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+    </style>
+    <script>
+        function countdown() {
+            const eventDate = new Date("May 2, 2025 19:00:00").getTime();
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "Chegou o grande dia!";
+                }
+            }, 1000);
+        }
+        window.onload = countdown;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/68/Stardew_Valley.png" alt="Stardew Valley" class="banner">
+        <h1>Convite Especial!</h1>
+        <p>Venha celebrar meu aniversário com muito Stardew Valley, boa comida e diversão!</p>
+        <p><strong>📅 Data:</strong> 02/05/2025 às 19h</p>
+        <p><strong>📍 Local:</strong> <a href="https://goo.gl/maps/z3Gf6yH1JZtCPX9Q7" target="_blank">Benner Sistemas - Rua Itajaí, 2975, Vorstadt, Blumenau - SC</a></p>
+        <p id="countdown"></p>
+        <a href="https://wa.me/seunumerodetelefone" class="button">Confirmar Presença</a>
+        <br>
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Aniversário+Stardew+Valley&dates=20250502T190000Z/20250502T230000Z&details=Venha+celebrar+meu+aniversário+com+muito+Stardew+Valley!&location=Benner+Sistemas,+Rua+Itajaí,+2975,+Vorstadt,+Blumenau,+SC" class="button" target="_blank">Adicionar ao Google Agenda</a>
+        <br>
+        <iframe style="margin-top: 15px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6ziVCJnEm59" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+</body>
+</html>
